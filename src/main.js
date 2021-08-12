@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import router from './router'
+import router from './router/routes'
 import store from './store'
 
 Vue.config.productionTip = false
@@ -14,6 +14,5 @@ new Vue({
     setupPageTitle() {
       document.title = 'Admin Panel'; /// add to i18n
     },
-
   }
 }).$mount('#app')
