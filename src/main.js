@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import router from './router/routes'
 import store from './store'
+require('./bootstrap');
 
 Vue.config.productionTip = false
 
