@@ -6,21 +6,21 @@
                 <span class="title">Login page</span>
             </div>
             <div class="authentication-body">
-                <div class="row">
-                    <div class="col-xs-12 form-group">
-                        <label for="mobile" class="label">User Name:</label>
-                        <input type="text" name="mobile" id="mobile" class="form-control" placeholder="Input user name" autocomplete="off" v-model="mobile" />
+                <form @submit.prevent="onSubmitForm" @keydown.enter.prevent.self @keydown="form.errors.clear($event.target.name)">
+                    <div class="row">
+                        <div class="col-xs-12 form-group">
+                            <label for="mobile" class="label">User Name:</label>
+                            <input type="text" name="mobile" id="mobile" class="form-control" placeholder="Input user name" autocomplete="off" v-model="mobile" />
+                        </div>
+                        <div class="col-xs-12 form-group">
+                            <label for="mobile" class="Password">Password:</label>
+                            <input type="password" name="password" id="password" class="form-control" placeholder="Input Password" autocomplete="off" v-model="password" />
+                        </div>
                     </div>
-                    <div class="col-xs-12 form-group">
-                        <label for="mobile" class="Password">Password:</label>
-                        <input type="password" name="password" id="password" class="form-control" placeholder="Input Password" autocomplete="off" v-model="password" />
+                    <div class="btn">
+                        <Button :isLoading=isLoading title="Login" ui="btn btn-primary medium full-width" type="submit"></Button>
                     </div>
-                </div>
-                <div class="btn">
-                    
-                    <Button :isLoading=isLoading title="Login" ui="btn btn-primary medium full-width" type="submit"></Button>
-                   
-                </div>
+                </form>
             </div>
         </div>
     </div>
@@ -34,8 +34,13 @@ export default {
             mobile:'',
             password:''
         }
+    },
+    methods:{
+        onSubmitForm(){
+            console.log("vvvvvvvvvvvvvvvv");
+            axios.pos
+        }
     }
-    
 }
 </script>
 
@@ -77,8 +82,5 @@ export default {
             }
         }
     }
-    
 }
-
-
 </style>
