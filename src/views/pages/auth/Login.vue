@@ -9,8 +9,8 @@
                 <form @submit.prevent="onSubmitForm" @keydown.enter.prevent.self>
                     <div class="row">
                         <div class="col-xs-12 form-group">
-                            <label for="mobile" class="label">User Name:</label>
-                            <input type="text" name="mobile" id="mobile" class="form-control" placeholder="Enter the user name" autocomplete="off" v-model="form.userName" />
+                            <label for="mobile" class="label">Email:</label>
+                            <input type="text" name="mobile" id="mobile" class="form-control" placeholder="Enter the email" autocomplete="off" v-model="form.email" />
                         </div>
                         <div class="col-xs-12 form-group">
                             <label for="password" class="label">Password:</label>
@@ -30,20 +30,19 @@
 export default {
     data() {
         return{
-            userName:"",
             isLoading:false,
             form: new Form({
-                userName: '',
+                email: '',
                 password:''
             })
-
-            
         }
     },
     methods:{
         onSubmitForm(){
-            console.log(this.form);
-            axios.pos
+            this.form.submit('post', '/api/login').then(response => {
+                console.log(response);
+            })
+            
         }
     }
 }
