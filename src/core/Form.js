@@ -1,4 +1,3 @@
-import Errors from './Error';
 import ajax from '../core/Ajax';
 
 class Form {
@@ -9,8 +8,6 @@ class Form {
         for (let field in data) {
             this[field] = data[field];
         }
-
-        this.errors = new Errors()
     }
 
     data() {
@@ -44,13 +41,10 @@ class Form {
     }
 
     onSuccess(data) {
-        this.errors.clear();
         this.reset();
     }
 
     onFail(error) {
-        this.errors.record(error.meta);
-        // this.errors.record(error);
     }
 }
 

@@ -6,15 +6,15 @@
                 <span class="title">Login page</span>
             </div>
             <div class="authentication-body">
-                <form @submit.prevent="onSubmitForm" @keydown.enter.prevent.self @keydown="form.errors.clear($event.target.name)">
+                <form @submit.prevent="onSubmitForm" @keydown.enter.prevent.self>
                     <div class="row">
                         <div class="col-xs-12 form-group">
                             <label for="mobile" class="label">User Name:</label>
-                            <input type="text" name="mobile" id="mobile" class="form-control" placeholder="Input user name" autocomplete="off" v-model="mobile" />
+                            <input type="text" name="mobile" id="mobile" class="form-control" placeholder="Enter the user name" autocomplete="off" v-model="form.userName" />
                         </div>
                         <div class="col-xs-12 form-group">
                             <label for="password" class="label">Password:</label>
-                            <input type="password" name="password" id="password" class="form-control" placeholder="Input Password" autocomplete="off" v-model="password" />
+                            <input type="password" name="password" id="password" class="form-control" placeholder="Enter the Password" autocomplete="off" v-model="form.password" />
                         </div>
                     </div>
                     <div class="btn">
@@ -30,16 +30,19 @@
 export default {
     data() {
         return{
+            userName:"",
             isLoading:false,
-            mobile:'',
-            password:'',
+            form: new Form({
+                userName: '',
+                password:''
+            })
 
             
         }
     },
     methods:{
         onSubmitForm(){
-            console.log("vvvvvvvvvvvvvvvv");
+            console.log(this.form);
             axios.pos
         }
     }
