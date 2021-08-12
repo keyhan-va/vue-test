@@ -13,7 +13,7 @@
                             <input type="text" name="mobile" id="mobile" class="form-control" placeholder="Input user name" autocomplete="off" v-model="mobile" />
                         </div>
                         <div class="col-xs-12 form-group">
-                            <label for="mobile" class="Password">Password:</label>
+                            <label for="password" class="label">Password:</label>
                             <input type="password" name="password" id="password" class="form-control" placeholder="Input Password" autocomplete="off" v-model="password" />
                         </div>
                     </div>
@@ -28,11 +28,13 @@
 
 <script>
 export default {
-    data(){
+    data() {
         return{
             isLoading:false,
             mobile:'',
-            password:''
+            password:'',
+
+            
         }
     },
     methods:{
