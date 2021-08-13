@@ -27,6 +27,7 @@
 </template>
 
 <script>
+import AuthRepository from '../../../repositories/AuthRepository'
 export default {
     data() {
         return{
@@ -40,7 +41,7 @@ export default {
     methods:{
         onSubmitForm(){
             this.form.submit('post', '/api/login').then(response => {
-                console.log(response);
+                AuthRepository.setupApiToken(response.token)
             })
             
         }

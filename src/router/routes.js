@@ -20,18 +20,18 @@ const routes = [
   },
 
   {
-    path: '/admin',
-    name: 'admin',
-    redirect: '/admin/home',
+    path: '/admin/',
+    name: 'admin.index',
+    redirect: '/admin/home/',
     component: PanelComponent,
     children: [
-      {path: '/', redirect: '/admin/'},
+      {path: '/', redirect: '/admin/home'},
       {
         path: '',
         component: StandardComponentContainer,
         children: [
             {
-              path: '/home',
+              path: 'home',
               component: HomeComponent
             }
         ]
