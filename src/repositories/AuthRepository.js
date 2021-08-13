@@ -23,6 +23,7 @@ class AuthRepository {
     }
 
     static coordinateAuthPath() {
+        console.log("router",router.currentRoute);
         if ( router.currentRoute.name === 'auth.login') {
            router.push({
                 path: '/admin/home'

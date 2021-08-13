@@ -41,8 +41,9 @@ export default {
     methods:{
         onSubmitForm(){
             this.isLoading= true;
-            this.form.submit('post', '/api/register').then(response => {
+            this.form.submit('post', '/api/login').then(response => {
                 AuthRepository.setupApiToken(response.token)
+                window.events.$emit('boot');
                 this.isLoading= false;
             })
             

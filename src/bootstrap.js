@@ -14,3 +14,4 @@ Vue.component('Button', require('./views/components/form/Button').default);
 
 window.axios = ajax;
 window.Form = Form;
+window.events = new Vue();
