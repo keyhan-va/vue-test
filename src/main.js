@@ -5,6 +5,7 @@ require('./bootstrap');
 import AuthRepository from "@/repositories/AuthRepository";
 
 Vue.config.productionTip = false
+Vue.config.ignoredElements = [/^ion-/]
 
 new Vue({
   router,

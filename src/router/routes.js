@@ -70,15 +70,12 @@ router.beforeEach((to, from, next) => {
     resolve();
   }).then(() => {
     if (to.path.substring(0, 7) === "/admin/") {
-      console.log("111111",to.path.substring(0, 7));
       to.meta.middleware = [auth];
     }
     if (to.path.substring(0, 6) === "/auth/") {
-      console.log("2222222",to.path.substring(0, 6));
       to.meta.middleware = [guest];
     }
     if (!to.meta.middleware) {
-      console.log("333333");
       return next()
     }
     const middleware = to.meta.middleware

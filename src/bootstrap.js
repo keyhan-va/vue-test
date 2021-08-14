@@ -10,6 +10,9 @@ Vue.use(DisableAutocomplete);
 
 Vue.component('Form', require('./core/Form').default);
 Vue.component('Button', require('./views/components/form/Button').default);
+Vue.component('navigation', require('./views/components/navbar/navigation').default);
+Vue.component('UserMenu', require('./views/components/navbar/UserMenu').default);
+Vue.component('BaseMenu', require('./views/components/navbar/BaseMenu').default);
 
 
 window.axios = ajax;
