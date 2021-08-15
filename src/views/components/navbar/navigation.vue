@@ -1,7 +1,7 @@
 <template>
     <div class="navbar">
         <div class="left-menu">
-            <img class="llogo" src="/images/logo/whiteLogo.png" alt="">
+            <img class="logo" src="/images/logo/whiteLogo.png" alt="">
             <BaseMenu></BaseMenu>
         </div>
         <div class="right-menu">
@@ -39,9 +39,11 @@ export default {
     background-color: #161e38;
 
     .left-menu{
-        
-        .llogo{
-            width: 100px;
+        display: flex;
+        align-items: center;
+        .logo{
+            width: 80px;
+            // height: 30px;
         }
     }
 

@@ -14,6 +14,8 @@ Vue.component('navigation', require('./views/components/navbar/navigation').defa
 Vue.component('UserMenu', require('./views/components/navbar/UserMenu').default);
 Vue.component('BaseMenu', require('./views/components/navbar/BaseMenu').default);
 
+Vue.directive('click-outside', require('./views/directives/ClickOutside.js').default);
+
 
 window.axios = ajax;
 window.Form = Form;

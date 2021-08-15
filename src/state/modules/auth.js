@@ -58,7 +58,6 @@ export default {
         getAccount({commit}) {
             return new Promise((resolve, reject) => {
                 axios.get('api/users/1').then(response => {
-                    console.log("response",response);
                     resolve();
                 //     console.log("response",response.data.data.user);
                 //     // commit('auth/setAccount', response.data.data.account, {root: true});

@@ -8,7 +8,6 @@ export default new Vuex.Store({
         auth: require('./modules/auth').default,
         app: require('./modules/app').default,
         http: require('./modules/http').default,
-        socket: require('./modules/socket').default,
         permission: require('./modules/permission').default,
     }
 })

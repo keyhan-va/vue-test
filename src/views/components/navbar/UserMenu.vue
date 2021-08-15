@@ -1,5 +1,5 @@
 <template>
-    <div class="UserMenu">
+    <div class="UserMenu" v-click-outside="hideDropDown">
         <div class="image" @click="extend">
             <img :src="userData.avatar" alt="">
             <ion-icon name="chevron-down-outline"></ion-icon>
@@ -14,7 +14,7 @@
                 <span class="title">{{userData.firstName}}</span>
                 <span class="subtitle">{{userData.role}}</span>
             </div>
-            <div class="footer">
+            <div class="footer" @click="logout">
                 <ion-icon name="log-in-outline"></ion-icon>
                 <span>Logout</span>
             </div>
@@ -22,6 +22,7 @@
     </div>
 </template>
 <script>
+import AuthRepository from '../../../repositories/AuthRepository'
 export default {
     data(){
         return{
@@ -31,7 +32,14 @@ export default {
     },
     methods:{
         extend(){
-            this.extand= ! this.extand;
+            this.extand = ! this.extand;
+        },
+        hideDropDown(){
+           this.extand = false; 
+        },
+        logout(){
+             AuthRepository.removeApiToken()
+            this.$router.push({ path: '/auth/login'})
         }
     },
     props: {
@@ -77,9 +85,9 @@ export default {
         position: absolute;
         min-height: 200px;
         min-width: 380px;
-        background-color: #fff;
+        background-color: #ffff;
         border-radius: 7px;
-        border: 1px solid rgb(235, 235, 235);
+        border: 1px solid #f0f0f0;
         top: 60px;
         padding: 0 15px;
         right: 5px;
@@ -123,6 +131,29 @@ export default {
         }
 
     }
+}
+
+@media only screen and (max-width: 768px){
+    .UserMenu{
+        .drop-down{
+            min-width: 320px;
+            background-color: #212b4b;
+            border: 1px solid #2c3655;
+            .languages{
+                border-bottom: 2px solid #2c3655;
+            }
+            .info{
+                border-bottom: 2px solid #2c3655;
+                .title{
+                    color: #fff;
+                }
+                .subtitle{
+                    color: #bbbbbb;
+                }
+            }
+        }
+    }
+
 }
 
 
