@@ -1,18 +1,18 @@
 <template>
     <div class="UserMenu" v-click-outside="hideDropDown">
         <div class="image" @click="extend">
-            <img :src="userData.avatar" alt="">
+            <img :src="account.avatar" alt="">
             <ion-icon name="chevron-down-outline"></ion-icon>
         </div>
         <div v-show="extand" class="drop-down">
             <div class="languages">
-                <div class="flag" v-for="(language,index) in languages" :key="index">
-                    {{language.title}}
+                <div class="flag" v-for="(language,index) in Languages" :key="index">
+                    <img :src="language.src" alt="aa" :class="{'active': language.isActive}">
                 </div>
             </div>
             <div class="info">
-                <span class="title">{{userData.firstName}}</span>
-                <span class="subtitle">{{userData.role}}</span>
+                <span class="title">{{account.first_name}}</span>
+                <span class="subtitle">administrator</span>
             </div>
             <div class="footer" @click="logout">
                 <ion-icon name="log-in-outline"></ion-icon>
@@ -23,10 +23,12 @@
 </template>
 <script>
 import AuthRepository from '../../../repositories/AuthRepository'
+import { mapState } from "vuex";
 export default {
     data(){
         return{
             extand: false,
+            // user= '',
 
         }
     },
@@ -42,20 +44,17 @@ export default {
             this.$router.push({ path: '/auth/login'})
         }
     },
-    props: {
-        languages:{
-            type: Array,
-            require:false,
-        },
-        userData:{
-            type: Object,
-            require: true,
-        }
-    },
+    computed: {
+      ...mapState({
+        account: (state) => state.auth.account,
+        Languages: (state) => state.static.languages,
+      })
+    }
 }
 </script>
-<style lang="scss" scoped>
 
+
+<style lang="scss" scoped>
 .UserMenu{
     .image{
         cursor: pointer;
@@ -96,8 +95,22 @@ export default {
             align-items: center;
             height: 70px;
             border-bottom: 2px solid #f0f0f0;
+            
             .flag{
-                cursor: pointer;
+                width: 35px;
+                margin: 5px;
+                
+                img{
+                    cursor: pointer;
+                    border-radius: 12px;
+                    width: 100%;
+                    filter: opacity(0.5);
+                    
+                    &.active{
+                        filter: opacity(1)
+                    }
+                    
+                }
             }
         }
         .info{
@@ -132,7 +145,6 @@ export default {
 
     }
 }
-
 @media only screen and (max-width: 768px){
     .UserMenu{
         .drop-down{
@@ -153,7 +165,6 @@ export default {
             }
         }
     }
-
 }
 
 

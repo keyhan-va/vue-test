@@ -30,29 +30,20 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
     data(){
         return{
             search: "",
             subItems:[],
             showMenu: false,
-            items:[
-                {name: "Chart and Reports" , id: 1 , paren_id: null},
-                {name: "live map" , id: 10 , paren_id: 1},
-                {name: "user reports" , id: 11 , paren_id: 1},
-                {name: "trafic report" , id: 12 , paren_id: 1},
-
-                {name: "Producers" , id: 2 , paren_id: null},
-                {name: "live state" , id: 13 , paren_id: 2},
-                {name: "user state" , id: 14 , paren_id: 2},
-                {name: "trafic state" , id: 15 , paren_id: 2},
-
-                {name: "Task" , id: 3 , paren_id: null},
-                {name: "Drivers" , id: 4 , paren_id: null},
-            ]
         }
     },
     computed: {
+        ...mapState({
+            items: (state) => state.static.menuItems,
+        }),
+
         filteredList() {
             this.subItems = [];
             this.selected = null;
@@ -61,6 +52,7 @@ export default {
             })
         }
     },
+    
     methods:{
         showSubList(id){
             this.selected = id;
@@ -130,8 +122,15 @@ export default {
         }
         .menu{
             padding: 20px;
+            height: calc(100% - 70px);
             .left{
+                height: 100%;
+                overflow: auto;
+                ::-webkit-scrollbar{
+                    width: 2px;
+                }
                 .menu-item{
+                    
                     cursor: pointer;
                     display: flex;
                     align-items: center;

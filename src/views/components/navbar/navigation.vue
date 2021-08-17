@@ -5,7 +5,7 @@
             <BaseMenu></BaseMenu>
         </div>
         <div class="right-menu">
-            <UserMenu :languages="languages" :userData="user"></UserMenu>
+            <UserMenu></UserMenu>
         </div>
     </div>
 </template>
@@ -14,15 +14,6 @@
 export default {
     data(){
         return{
-            languages:[
-                {title: "Iran" , flage: "ddddddd"}
-            ],
-            user:{
-                firstName: "Alshimist",
-                lastName: "Valieh",
-                role: "administrator",
-                avatar: "/images/users/1.jpg"
-            }
         }
     }
 }

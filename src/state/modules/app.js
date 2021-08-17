@@ -2,16 +2,19 @@ export default {
     namespaced: true,
     state: {
         isLoaded: true,
-        isLocked: localStorage.getItem('lock') !== null
     },
     actions: {
-        boot() {
+        boot({commit}) {
             return new Promise((resolve, reject) => {
-                axios.get('api/users/1').then(response => {
-                    resolve(response);
+                axios.get('http://localhost:3000/statics').then(response => {
+                    console.log(response.data[0].languages);
+                    commit('static/setMenuItems', response.data[0].items, {root: true});
+                    commit('static/setLanguages', response.data[0].languages, {root: true});
+                    resolve();
                 }).catch(e => {
                     reject(e);
                 })
+
             });
         }
     }

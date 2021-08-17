@@ -1,0 +1,36 @@
+{
+    "statics": [
+        {
+            "items":[
+                {"name": "Chart and Reports" , "id": 1 , "paren_id": null},
+                {"name": "live map" , "id": 10 , "paren_id": 1},
+                {"name": "user reports" , "id": 11 , "paren_id": 1},
+                {"name": "trafic report" , "id": 12 , "paren_id": 1},
+        
+                {"name": "Producers" , "id": 2 , "paren_id": null},
+                {"name": "live state" , "id": 13 , "paren_id": 2},
+                {"name": "user state" , "id": 14 , "paren_id": 2},
+                {"name": "trafic state" , "id": 15 , "paren_id": 2},
+        
+                {"name": "Task" , "id": 3 , "paren_id": null},
+                {"name": "Task 1" , "id": 13 , "paren_id": 3},
+                {"name": "Task 2" , "id": 14 , "paren_id": 3},
+                {"name": "Task 3" , "id": 15 , "paren_id": 3},
+
+                {"name": "Drivers" , "id": 4 , "paren_id": null},
+                {"name": "Drivers 1" , "id": 13 , "paren_id": 4},
+                {"name": "Drivers 2" , "id": 14 , "paren_id": 4},
+                {"name": "Drivers 3" , "id": 15 , "paren_id": 4}
+            ],
+        
+            "languages":[
+                {"name": "English" , "src":"https://www.countryflags.io/GB/flat/64.png", "isActive": true},
+                {"name": "Italian" , "src":"https://www.countryflags.io/IT/flat/64.png", "isActive": false}
+            ]
+
+        }
+        
+
+    ]
+    
+}
