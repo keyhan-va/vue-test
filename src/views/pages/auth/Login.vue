@@ -2,7 +2,7 @@
     <div class="authentication">
         <div class="uthentication-box">
             <div class="header">
-                <img class="logo" src="/images/login/logoGray.svg" alt="">
+                <img class="logo" src="/images/login/logoGray.png" alt="">
                 <span class="title">Login page</span>
             </div>
             <div class="authentication-body">
